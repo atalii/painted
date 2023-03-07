@@ -15,9 +15,13 @@ through an unrestrictive design that facilitates scripting, run-time
 modification, and, of course, completeness.
 
 ## Building
-Painted is built with Nix Flakes. On a system with Nix Flakes, run `nix build`.
-If you don't have Flakes and/or Nix, `go build ./cmd/painted` will probably
-work, too, though this isn't :sparkles: officially supported :sparkles:.
+
+Build with a Go compiler of at least 1.17: `go build ./cmd/painted`.
+
+Tagged versions can be built with Nix Flakes: `git checkout v0.1.3 && nix build`.
+
+The Nix build is currently broken on the primary dev branch. I'll fix it...
+eventually.
 
 ## Usage
 See painted(1). (If you've just got the source checked out, you can run `man
