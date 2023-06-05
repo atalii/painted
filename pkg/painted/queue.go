@@ -3,13 +3,13 @@ package painted
 import "github.com/gammazero/deque"
 
 type NotifQueue struct {
-	queue deque.Deque
+	queue deque.Deque[*Notification]
 	index int
 }
 
 func (n *NotifQueue) Get() *Notification {
 	if n.index+1 <= n.queue.Len() {
-		return n.queue.At(n.index).(*Notification)
+		return n.queue.At(n.index)
 	} else {
 		return nil
 	}
@@ -17,7 +17,7 @@ func (n *NotifQueue) Get() *Notification {
 
 func (n *NotifQueue) Remove() *Notification {
 	if n.queue.Len() > 0 {
-		return n.queue.PopFront().(*Notification)
+		return n.queue.PopFront()
 	} else {
 		return nil
 	}
@@ -42,7 +42,7 @@ func (n *NotifQueue) Push(x *Notification) {
 
 func (n *NotifQueue) CallOnCurrent(callback func(*Notification)) {
 	if n.queue.Len() > 0 {
-		x := n.queue.At(n.index).(*Notification)
+		x := n.queue.At(n.index)
 		callback(x)
 	}
 }

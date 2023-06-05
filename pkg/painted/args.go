@@ -81,13 +81,15 @@ func (a *Args) Make() (Exec, error) {
 			return nil, err
 		}
 
+		var q deque.Deque[*Notification]
+
 		return Model{
 			conf,
 			Io{
 				Reader{reader, a.Input},
 				Writer{writer, a.Output},
 			},
-			NotifQueue{*deque.New(), 0},
+			NotifQueue{q, 0},
 		}, nil
 	}
 }
