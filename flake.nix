@@ -12,7 +12,7 @@
           (path: type: baseNameOf path != "contrib")
           ./.;
 
-        vendorSha256 = "sha256-1d/13P/b/kp4QPwUB7Tduy79sWi8GWHpwEelSxkjp9k=";
+        vendorSha256 = "sha256-gjebcPlEzyLZptM2w6smMTVSqMqLCBQAR7jRFIM05/w=";
       }; in pkgs.stdenv.mkDerivation {
         name = "painted";
         version = "v0.1.3";
