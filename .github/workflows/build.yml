@@ -5,6 +5,7 @@ on:
 jobs:
   build:
     runs-on: self-hosted
+    container: nixos/nix
     steps:
       - uses: actions/checkout@v2.4.0
       - uses: cachix/install-nix-action@v15
